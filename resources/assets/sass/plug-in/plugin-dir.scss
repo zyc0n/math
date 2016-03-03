@@ -1,0 +1,120 @@
+//@import 'bourbon/bourbon';
+//@import 'normalize/normalize';
+//@import 'neat/neat';
+//@import 'base/base';
+
+//@import "bourbon/bourbon";
+@import 'normalize/normalize';
+//@import "neat/neat";
+//@import "base/base";
+
+@mixin vertical-align($extra)
+{
+	top: calc(50% - #{$extra});
+	-webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);	
+}
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter($grid-columns, $gutter); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+/**
+ * float
+ */
+
+.left
+{
+  float: left;
+}
+
+.right
+{
+  float: right;
+}
+
+
+/* ==================================================== */
+/* vertical center */
+/* ==================================================== */
+
+/* This parent can be any width and height */
+.block {
+  //text-align: center;
+  height: 100%;
+  width: 100%;
+}
+ 
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  //@include inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+.centered {
+  //@include inline-block;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * hidden
+ */
+.hidden
+{
+  display: none;
+}
+
+
+
+/* headlines with lines */
+.decorated
+{
+    overflow: hidden;
+    text-align: center;
+
+    &.nop
+    {
+      > span:before, > span:after
+      {
+        @include transition (all 0s $ease-out-quad);
+        width: 0px; /* half of limiter*/
+      }  
+    }
+
+    &.yep
+    {
+      > span:before,  > span:after
+      {
+        width: 1000px; /* half of limiter*/
+      }  
+    }
+ }
+
+.decorated > span{
+    position: relative;
+    display: inline-block;
+}
+.decorated > span:before, .decorated > span:after{
+    @include transition (all 1.5s $ease-out-quad);
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-bottom: 2px solid;
+    width: 1000px; /* half of limiter*/
+    margin: 0 20px;
+}
+.decorated > span:before{
+    right: 100%;
+}
+.decorated > span:after{
+    left: 100%;
+}

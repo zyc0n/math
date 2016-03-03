@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="317f4a4a-ddaf-4120-8fb6-b70a34d241d5" name="beerpeople math" url="http://ftp.beerpeople.it">
+        <fileTransfer host="ftp.beerpeople.it" port="21" rootFolder="/public_html/math" password="df9cdf9cdfc6dfdddf99df9fdfdedfc2dfe8dfe7" username="euhrimqt">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" showHiddenFiles="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
